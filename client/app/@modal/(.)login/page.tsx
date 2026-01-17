@@ -1,0 +1,55 @@
+"use client"
+import { useRouter } from "next/navigation"
+import { useAuth } from "@/context/AuthContext"
+
+export default function LoginModal() {
+    const router = useRouter()
+    const { login } = useAuth()
+
+    return (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+            {/* Backdrop click to dismiss */}
+            <div
+                className="absolute inset-0"
+                onClick={() => router.back()}
+            ></div>
+
+            <div className="bg-white dark:bg-slate-900 w-full max-w-md rounded-2xl p-8 relative z-10 shadow-2xl animate-in zoom-in-95 duration-200">
+                <button
+                    onClick={() => router.back()}
+                    className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                >
+                    ✕
+                </button>
+
+                <div className="text-center mb-8">
+                    <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Welcome Back</h2>
+                    <p className="text-slate-500 dark:text-slate-400">Sign in to access your trips.</p>
+                </div>
+
+                <div className="space-y-4">
+                    <input
+                        type="email"
+                        placeholder="Email address"
+                        className="w-full h-12 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-transparent focus:ring-2 focus:ring-indigo-600 outline-none"
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        className="w-full h-12 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-transparent focus:ring-2 focus:ring-indigo-600 outline-none"
+                    />
+                    <button
+                        className="w-full h-12 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all"
+                        onClick={login}
+                    >
+                        Sign In
+                    </button>
+                </div>
+
+                <p className="text-center text-sm text-slate-500 mt-6">
+                    Don't have an account? <span className="text-indigo-600 font-bold cursor-pointer">Sign up</span>
+                </p>
+            </div>
+        </div>
+    )
+}
