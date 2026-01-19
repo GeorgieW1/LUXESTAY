@@ -1,10 +1,12 @@
 "use client"
 
+import { Suspense } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import MasonryGallery from "@/components/features/MasonryGallery"
 import SearchBar from "@/components/features/SearchBar"
+import { Skeleton } from "@/components/ui/skeleton"
 
 export default function Hero() {
     return (
@@ -40,14 +42,24 @@ export default function Hero() {
                         </p>
 
                         <div className="mt-10 w-full z-10 relative">
-                            <SearchBar />
+                            <Suspense fallback={<div className="h-16 w-full bg-slate-100 rounded-xl" />}>
+                                <SearchBar />
+                            </Suspense>
                         </div>
                     </motion.div>
                 </div>
 
                 <div className="mx-auto mt-16 w-full max-w-2xl sm:mt-24 lg:ml-10 lg:mt-0 lg:mr-0 lg:max-w-none lg:flex-none xl:ml-32">
                     <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-                        <MasonryGallery />
+                        <Suspense fallback={
+                            <div className="grid grid-cols-1 sm:grid-cols-2 grid-rows-3 gap-4 h-[500px] w-full lg:w-[480px]">
+                                <Skeleton className="row-span-2 col-span-2 h-full rounded-2xl" />
+                                <Skeleton className="col-span-1 h-full rounded-2xl" />
+                                <Skeleton className="col-span-1 h-full rounded-2xl" />
+                            </div>
+                        }>
+                            <MasonryGallery />
+                        </Suspense>
                     </div>
                 </div>
             </div>
