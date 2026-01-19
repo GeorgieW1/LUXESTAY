@@ -1,4 +1,6 @@
+import { Suspense } from "react"
 import MasonryGallery from "@/components/features/MasonryGallery"
+import { Skeleton } from "@/components/ui/skeleton"
 
 export default function HotelsPage() {
     return (
@@ -15,7 +17,13 @@ export default function HotelsPage() {
                     or ideally we would have a 'list' view component. 
                     For now, reusing MasonryGallery to show connectivity. */}
                 <div className="flex justify-center">
-                    <MasonryGallery />
+                    <Suspense fallback={<div className="grid grid-cols-1 sm:grid-cols-2 grid-rows-3 gap-4 h-[500px] w-full lg:w-[480px]">
+                        <Skeleton className="row-span-2 col-span-2 h-full rounded-2xl" />
+                        <Skeleton className="col-span-1 h-full rounded-2xl" />
+                        <Skeleton className="col-span-1 h-full rounded-2xl" />
+                    </div>}>
+                        <MasonryGallery />
+                    </Suspense>
                 </div>
             </div>
         </main>
