@@ -88,5 +88,5 @@
 - [x] Initialize Git Repository <!-- id: 90 -->
 - [x] Create .gitignore <!-- id: 91 -->
 - [x] Commit Codebase <!-- id: 92 -->
-- [ ] Push to GitHub <!-- id: 93 -->
-- [ ] Deploy to Vercel <!-- id: 94 -->
+- [x] Push to GitHub <!-- id: 93 -->
+- [/] Deploy to Vercel <!-- id: 94 -->
