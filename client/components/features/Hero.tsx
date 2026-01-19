@@ -29,9 +29,7 @@ export default function Hero() {
                         transition={{ duration: 0.5 }}
                         className="mt-24 sm:mt-32 lg:mt-16"
                     >
-                        <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium leading-6 text-indigo-600 ring-1 ring-inset ring-indigo-600/10 dark:text-indigo-400 dark:ring-indigo-400/20 bg-indigo-50 dark:bg-indigo-950/30 mb-8">
-                            Frontend v0.1
-                        </div>
+
 
                         <h1 className="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 sm:text-6xl text-balance">
                             Experience Luxury, <span className="text-indigo-600 dark:text-indigo-500">Redefined</span>.
